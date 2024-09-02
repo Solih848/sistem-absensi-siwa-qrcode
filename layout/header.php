@@ -36,9 +36,9 @@
         <div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light">SISTEM ABSENSI QR</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="tabel_siswa"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="tabel_absensi"><i class="fa-solid fa-table-columns"></i> Tabel Absensi</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="scan"><i class="fa-solid fa-qrcode"></i> Scan</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="tabel_siswa.php"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="tabel_absensi.php"><i class="fa-solid fa-table-columns"></i> Tabel Absensi</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="scan.php"><i class="fa-solid fa-qrcode"></i> Scan</a>
             </div>
         </div>
         <!-- Page content wrapper-->
