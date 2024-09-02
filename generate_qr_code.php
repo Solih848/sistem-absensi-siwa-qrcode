@@ -19,7 +19,7 @@ if (!is_dir($tempDir)) {
 // Set ukuran QR code
 $size = 10;
 $qrContent = $nama . '|' . $nim . '|' . $kelas;
-$nama_siswa = preg_replace('/[^A-Za-z0-9]/', '_', $nama); // Mengganti spasi atau karakter khusus dengan underscore
+$nama_siswa = preg_replace('/[^A-Za-z0-9]/', '_', $nama); 
 $qrFileName = $tempDir . $nama_siswa . '.png';
 
 QRcode::png($qrContent, $qrFileName, QR_ECLEVEL_L, $size);
