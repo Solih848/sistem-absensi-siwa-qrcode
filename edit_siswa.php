@@ -1,36 +1,30 @@
 <?php
 include('koneksi.php');
-include('phpqrcode/qrlib.php'); // Pastikan Anda menyertakan library QR code
+include('phpqrcode/qrlib.php');
 
-// Cek apakah parameter id tersedia di URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Ambil data siswa berdasarkan ID
     $query = "SELECT * FROM siswa WHERE id = $id";
     $result = mysqli_query($conn, $query);
 
-    // Tambahkan pengecekan apakah query berhasil dieksekusi
     if ($result && mysqli_num_rows($result) > 0) {
         $siswa = mysqli_fetch_assoc($result);
 
-        // Jika form disubmit
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $nama = $_POST['nama'];
             $nim = $_POST['nim'];
             $alamat = $_POST['alamat'];
             $kelas = $_POST['kelas'];
 
-            // Set direktori penyimpanan QR code
             $tempDir = "qrcodes/";
 
-            // Cek dan buat direktori jika belum ada
             if (!is_dir($tempDir)) {
                 mkdir($tempDir, 0777, true);
             }
 
             // Set ukuran QR code
-            $size = 10; // Semakin besar angkanya, semakin besar QR code yang dihasilkan
+            $size = 10;
 
             // Generate QR code baru
             $qrContent = $nama . '|' . $nim . '|' . $kelas;
@@ -50,7 +44,6 @@ if (isset($_GET['id'])) {
             // Update data siswa dan path QR code baru di database
             $query = "UPDATE siswa SET nama = '$nama', nim = '$nim', alamat = '$alamat', kelas = '$kelas', qr_code_path = '$qrFileName' WHERE id = $id";
             if (mysqli_query($conn, $query)) {
-                // Redirect ke tabel_siswa.php setelah berhasil diupdate
                 header("Location: tabel_siswa.php");
                 exit();
             } else {
@@ -58,11 +51,9 @@ if (isset($_GET['id'])) {
             }
         }
     } else {
-        // Redirect jika data tidak ditemukan atau query gagal
         $error = "Data siswa tidak ditemukan.";
     }
 } else {
-    // Redirect jika id tidak ada di URL
     header("Location: tabel_siswa.php");
     exit();
 }
