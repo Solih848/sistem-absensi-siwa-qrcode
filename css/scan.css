@@ -1,0 +1,10 @@
+        @media (max-width: 600px) {
+            #reader {
+                max-width: 90%;
+                /* Lebar kotak pada tampilan mobile */
+            }
+
+            #container {
+                margin-bottom: 20px;
+            }
+        }
