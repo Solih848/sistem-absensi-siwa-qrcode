@@ -57,7 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Simpan ke database
     $query = "INSERT INTO siswa (nama, nim, alamat, kelas, qr_code_path) VALUES ('$nama', '$nim', '$alamat', '$kelas', '$qrFileName')";
     if (mysqli_query($conn, $query)) {
-        // Redirect to tabel_siswa.php setelah berhasil menambahkan data
         header("Location: tabel_siswa.php");
         exit();
     } else {
