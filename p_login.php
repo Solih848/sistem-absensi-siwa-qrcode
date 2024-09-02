@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
     // Login berhasil
     session_start();
     $_SESSION['email'] = $email;
-    header("Location: tabel_siswa.php"); // Redirect ke halaman users
+    header("Location: tabel_siswa.php");
 } else {
     // Login gagal
     echo "Email atau password salah.";
